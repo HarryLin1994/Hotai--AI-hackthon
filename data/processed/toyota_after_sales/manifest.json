@@ -1,0 +1,12 @@
+{
+  "raw_archive": "data/raw/toyota_after_sales_competition_data.7z",
+  "extracted_pdf": "data/extracted/toyota_after_sales/TOYOTA - 運用AI再造 TOYOTA 下一代顧客售後服務體驗/TOYOTA回廠服務流程手冊.pdf",
+  "extracted_images": [
+    "data/extracted/toyota_after_sales/TOYOTA - 運用AI再造 TOYOTA 下一代顧客售後服務體驗/附件_LINE預約操作說明.jpg"
+  ],
+  "processed_text": "data/processed/toyota_after_sales/toyota_return_service_process_manual.txt",
+  "processed_pages_jsonl": "data/processed/toyota_after_sales/toyota_return_service_process_manual.pages.jsonl",
+  "page_count": 11,
+  "total_text_chars": 1377,
+  "notes": "PDF text extraction is limited; diagrams/images may need OCR or manual structure extraction."
+}

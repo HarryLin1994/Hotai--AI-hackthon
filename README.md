@@ -1,61 +1,100 @@
 # Hotai-AI-hackthon 2026
-Here to store the code and the documents for teams to remember
 
-#This repo is meant for storing the hackathon progress and the concept that we aiming to do in taiwan.
-the website for the hackthon link is https://ht-hackathon.tw/tw/, we are planning to do the topic of agentic flow on enhancing customer service.
+Team: Jarvis計畫
 
-#重要時程：
-早鳥報名優惠：2026 年 8 月 31 日前完成初賽報名可獲和泰 Points 加碼。初賽報名暨收件截止：2026 年 10 月 14 日（三）13:00。決賽暨頒獎典禮：2026 年 11 月 21 日（六）進行現場簡報與 Prototype 展
+Active challenge topic: 運用 AI 再造 TOYOTA 下一代顧客售後服務體驗
 
-#專案目的： 
-透過 Agentic AI (代理工作流) 與 LLM 技術，為車主打造「客製化現場解決方案」與「專屬個人助理服務」
+## Main Goal
 
-#專案總覽與商業價值:
-本專案旨在利用 Agentic AI 實現高度客製化的客服體驗，藉此達成以下商業目標：
-提升客戶滿意度與黏著度： 透過精準、主動的服務，讓車主對品牌（如和泰）產生信任與依賴。
-創造具體收益 (ROI)： 結合相關市場文獻，量化「客戶滿意度/黏著度」為車廠帶來的實際轉化率。
-成本效益回推： 評估導入此 AI 功能後，預期可為和泰帶來的額外保修收益與營運 ROI。
+Build **Jarvis**, a voice-first after-sales service AI agent that turns TOYOTA service and repair interactions into a measurable customer-retention and revenue-growth loop.
 
-#場景類型:
-觸發情境與數據來源,AI 執行邏輯,最終輸出給用戶的價值
-突發事故 (如國道車禍),獲取車主 App 地理定位、事故口述,盤點和泰現有資源（原廠手冊、鄰近營業據點）、媒合道路救援,提供客製化緊急方案，並顯示預估處理時間與可能花費。售後服務 (保養與維修),歷史保養紀錄、行車數據、My Toyota App 互動行為,綜合分析車況與合約（如車輛保險方案），評估當下最適合的維修策略,列出最佳保養方案、預估成本、建議原因以及潛在風險提示，讓車主有感提升。
+The current main reference is:
 
-#系統框架與工作流 (Workflow Structure)
-整體系統採用多 Agent 協作模式，以確保回覆的專業度、安全性與邏輯性。
-資料流向： User ➡️ LLM 分析員 ➡️ LLM 檢查員 ➡️ LLM 提案員 ➡️ User
+- `docs/jarvis-after-sales-voice-agent-report.docx`
 
-#角色名稱,核心任務,詳細定義與待討論事項
-LLM 分析員,數據分析與初步提案,定義分析步驟與方法。確認 RAG (檢索增強生成) 知識庫的檢索順序，並生成初步回覆草稿。
-LLM 檢查員,內容審查與邏輯把關,授權檢查： 確認內容是否為官方已授權資訊。誠實原則： 遇到無法解決的問題需如實報告。格式檢查： 確保回答無斷尾或異常截斷。邏輯與可行性： 評估提案是否能真正解決問題（需定義判斷標準），且合乎常理與可行性（需定義常理標準）。
-LLM 提案員,語氣潤飾與最終輸出,初期採「自由發揮」模式生成具同理心且專業的回覆；後期將收斂並定義專屬「回覆模板」。
+## Core Proposal Axis
 
-#互動與呈現方式 (User Interface)
-多模態互動： 支援「語音對話輸入」，AI 將以「語音回覆 + 文本輸出」雙軌並行的方式呈現給用戶。
-參考範例： 打造類似影音平台的直觀對話體驗。
+Jarvis is positioned as an **售後保修智慧代理與全年齡無障礙語音助理**.
 
-#系統優化目標 (Engineering Work)
-降本增效 (Token 最佳化)： 透過 Prompt Engineering 與系統架構調整，精簡 Token 用量，讓營運成本數據更漂亮，達成最高效能。
+The proposal focuses on using GenAI, official service knowledge, and assumed internal vehicle/customer data to:
 
-＃＃＃＃＃＃
-目前待辦事項
-＃＃＃＃＃＃
+- Reduce owner cognitive load in maintenance, repair, and urgent service situations.
+- Make technical service explanations easier to understand through voice-first interaction.
+- Help service advisors communicate more consistently and efficiently.
+- Turn after-sales service from a passive cost center into a measurable retention and profit engine.
+- Increase over-warranty owner return rate and improve accident/service case routing back to official channels.
 
-1. 🤖 AI 角色與邏輯定義（最核心的待決事項）
-這部分關係到 AI 的判斷準則，需要具體量化或條列出規則：
-分析員 LLM：
-具體的「分析步驟與方法」是什麼？
-RAG 知識庫的「檢索順序」該如何排定（例如：先查原廠手冊，再查車主紀錄）？
-檢查員 LLM（判斷標準）：
-解決問題的標準： 怎樣才算「達成解決客戶的問題」？有哪幾個具體的判斷指標？
-可行性的標準： 何謂「合乎常理」？判斷提案是否可行的標準有哪些？
-提案員 LLM：
-雖然初期是自由發揮，但後續需要統一定義的「回覆模板」長什麼樣子？
+## Strategic Thesis
 
-3. 📊 商業價值與效益評估
-為了讓專案更有說服力，需要補齊的商業數據：
-ROI 估算： 需要找出相關文獻，證明「客戶滿意度與黏著度」能為車廠帶來多少實際收益。
-和泰專屬效益： 基於上述文獻，回推這個 Agentic Flow 功能具體能為和泰帶來多少財務效益與 ROI。
+After-sales service is the core loyalty battlefield after vehicle delivery.
 
-5. 🛠️ 技術落地與資料盤點（分配給 Daniel 與 Harry 的任務）
-資料源定義 (Daniel)： 確認要接入哪些和泰內部資源與社群爬蟲，並具體定義「各個資料庫的功能與目的」。
-平台選擇 (Harry)： 決定 Agentic Flow 最終要建置在哪個平台上（例如：LangChain、AutoGen、Dify 或其他框架）。
+Jarvis should create value by removing "認知摩擦" across the service journey:
+
+```text
+Vehicle / owner data
+  -> AI pattern discovery
+  -> Official domain knowledge
+  -> Jarvis voice assistant
+  -> Worry-free service experience
+  -> NPS and service behavior feedback loop
+```
+
+## Product Direction
+
+The current solution should combine:
+
+- **Voice-first assistant**: voice input with voice + text output for all-age accessibility.
+- **Service advisor copilot**: plain-language explanations, likely customer questions, and communication support.
+- **Customer lounge assistant**: transparent service progress, service education, and personalized car-care interaction.
+- **Official knowledge guardrails**: AI output must not contradict official TOYOTA / Hotai service information.
+- **Value loop analytics**: use interaction, service, and satisfaction data to improve retention and service conversion.
+
+## Data And Knowledge Assumptions
+
+The proposal may reasonably assume access to:
+
+- Owner maintenance history.
+- Vehicle driving data.
+- App / LINE interaction behavior.
+- Official TOYOTA service-process information.
+- Public online community discussions and interview / observation notes.
+
+Current imported reference data:
+
+- `data/raw/toyota_after_sales_competition_data.7z`
+- `data/extracted/toyota_after_sales/`
+- `data/processed/toyota_after_sales/`
+
+## Expected Benefits
+
+Working benefit targets from the current report:
+
+- Shorten service reception explanation time.
+- Reduce repeated owner questions.
+- Improve owner understanding and trust.
+- Increase APP / LINE interaction rate.
+- Improve return-service intent.
+- Increase over-warranty owner return and official service routing.
+- Build a measurable ROI model around retention and service revenue.
+
+Financial numbers such as the report's ROI estimate should be treated as **working assumptions pending validation** until we finish source checking and calculation review.
+
+## Repo Structure
+
+| Folder | Purpose |
+| --- | --- |
+| `backend/` | Future API, agent workflow, tools, guardrails, and integrations. |
+| `frontend/` | Future demo UI and prototype experience. |
+| `docs/` | Challenge brief, Jarvis report, planning, proposal draft, guardrails, and system structure. |
+| `data/` | Raw, extracted, and processed reference data. |
+
+## Main Documents
+
+- `docs/jarvis-ppt-master-plan.md`
+- `docs/jarvis-after-sales-voice-agent-report.docx`
+- `docs/challenge-toyota-after-sales-service.md`
+- `docs/proposal-working-draft.md`
+- `docs/planning.md`
+- `docs/system-structure.md`
+- `docs/data-inventory.md`
+- `docs/guardrails.md`
